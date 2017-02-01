@@ -32,9 +32,37 @@ public class transaksi {
         }
         text += "\n..................................................\n";
         text += "total pembelian:"+totaltransaksi()+"\n";
+        text += "rata - rata :"+averagetransaksi()+"\n";
         text += "\n...................................................\n";
         return text;
     }
+
+    public double averagetransaksi()
+    {
+        double hasil = 0;
+        for(int i= 0; i<Listbarang.size();i++)
+        {
+            hasil += Listbarang.get(i).getHarga();
+        }
+        hasil=hasil/Listbarang.size();
+        return hasil;
+    }
+    public String maxbarang(){
+        barang max;
+        max =Listbarang.get(0);
+        for(int i= 0; i<Listbarang.size();i++)
+        {
+            if(Listbarang.get(i).getHarga() > max.getHarga()){
+                max = Listbarang.get(i);
+            }
+        }
+
+
+        String namabarang = max.getNama();
+        String text = "barang termahal pada transaksi adalah "+namabarang;
+        return text;
+    }
+
 
 
 
