@@ -13,6 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
         android:text="Angka 1" />
     <EditText
         android:id="@+id/num1"
@@ -20,18 +21,42 @@
         android:layout_height="wrap_content" />
     <RadioGroup
         android:id="@+id/operator"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/plus"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"/>
         <RadioButton
             android:id="@+id/minus"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"/>
+        <RadioButton
+            android:id="@+id/kali"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"/>
+        <RadioButton
+            android:id="@+id/bagi"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"/>
+
     </RadioGroup>
     <TextView
         android:text="Angka 2"
@@ -45,6 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="hitung"
+        android:textStyle="bold"
+        android:textSize="25dp"
         android:onClick="calculate"/>
     <TextView
         android:id="@+id/result"
