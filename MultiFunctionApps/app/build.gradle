@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "syukron.habib.geometrycalculator"
+        applicationId "syukron.habib.multifunctionapps"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
