@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
         barang[3] = ((EditText) findViewById(R.id.bipet_num)).getText().toString();
         barang[4] = ((EditText) findViewById(R.id.gucci_num)).getText().toString();
 
-        //num_barang.add(Integer.parseInt((barang[0]));
-        //num_barang.add(Integer.parseInt((barang[1]));
-        //num_barang.add(Integer.parseInt((barang[2]));
-        //num_barang.add(Integer.parseInt((barang[3]));
-        //num_barang.add(Integer.parseInt((barang[4]));
+        num_barang.add(Integer.parseInt(barang[0]));
+       num_barang.add(Integer.parseInt(barang[1]));
+       num_barang.add(Integer.parseInt(barang[2]));
+        num_barang.add(Integer.parseInt(barang[3]));
+       num_barang.add(Integer.parseInt(barang[4]));
+
 
 
         //num_barang [0] = Integer.parseInt((barang[0]));
