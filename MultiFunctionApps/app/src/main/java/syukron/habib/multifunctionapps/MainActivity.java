@@ -40,5 +40,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, IntentExecutor.class);
         intent.putExtra(EXTRA, "map");
         startActivity(intent);
+
+    public void openMail(View view){
+        //membuka activity yang akan mengeksekusi implicit intent
+        Intent intent = new Intent(this, IntentExecutor.class);
+        intent.putExtra(EXTRA, "Mail");
+        startActivity(intent);
+
     }
 }
