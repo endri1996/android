@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,18 +20,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtShow = (TextView) findViewById(R.id.txt_show);
 
-        Transaksihelper dbHelper =new Transaksihelper(this);
-        List<Transaksi> ListTrans = dbHelper.getTransaksi();
 
-        for(int i=0; i<ListTrans.size();i++){
-            Transaksi trans = ListTrans.get(i);
-            strShow += "-------------------------\n";
-            strShow += trans.nama+" ["+trans.getjenis()+"] : "+trans.jumlah+"\n"+trans.keterangan;
+       // for(int i=0; i<ListTrans.size();i++){
+        //    Transaksi trans = ListTrans.get(i);
+        //    strShow += "-------------------------\n";
+         //   strShow += trans.nama+" ["+trans.getjenis()+"] : "+trans.jumlah+"\n"+trans.keterangan;
 
         }
-        txtShow.setText(strShow);
+     protected void onResume(){
+        super.onResume();
+         ListView ListTransaksi=(ListView) findViewById(R.id.List_transaksi);
+        txtShow = (TextView) findViewById(R.id.txt_show);
+
+        TransaksiHelper dbHelper =new TransaksiHelper(this);
+        final List<Transaksi> ListTrans = dbHelper.getTransaksi();
+
+         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ListTrans);
+         ListTransaksi.setAdapter(adapter);
+
+         int saldo =0;
+         for (int i=0;i<ListTrans.size();i++){
+             if(ListTrans.get(i).jenis==1){
+                 saldo +=ListTrans.get(i).jumlah;
+             }else{
+                 saldo += ListTrans.get(i).jumlah;
+             }
+
+    }
+        TextView txtsaldo =(TextView) findViewById(R.id.txt_saldo);
+         txtsaldo.setText(" saldo tersisa = "+Integer.toString(saldo));
+
+         ListTransaksi.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                 Transaksi transaksi = ListTrans.get(position);
+                 Intent intent = new Intent(parent.getContext(),DetailActivity.class);
+                 intent.putExtra("transaksi.detail", transaksi);
+                 startActivity(intent);
+
+             }
+         });
+
+ //       txtShow.setText(strShow);
     }
     public  void addTransaksi(View view)
     {
