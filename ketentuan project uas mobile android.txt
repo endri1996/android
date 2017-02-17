@@ -1,0 +1,7 @@
+buat aplikasi android dengan tema berikut :
+-aplikasi memliki database dengan minimal 1 tabel 
+-aplikasi memiliki untuk tampilan untuk mnginputkan data ke dalam database
+-aplikasi memiliki tampilan untuk menampilkan detail dari tiap-tiap data
+-tabel yang dibuat harus memiliki minimal 4 field dengan kombinasi minimal 1 kolom bertipe data String dan 1 kolom bertipe data angka 
+-pada tampilan list harus ada bagian yang menampilkan nilai agregasi dari keseluruhan data(sum/com/average/min/max/kombinasi semuanya)
+

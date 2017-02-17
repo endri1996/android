@@ -1,4 +1,4 @@
-package endri.agung.aplikasikeuangan;
+package endri.agung.aplikasipendataanmobil;
 import android.content.Intent;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
 
-    private String  [] jenisStr = {"Pemasukan", "Pengeluaran"};
-    private EditText edtNama, edtJumlah, edtKeterangan;
+    private String  [] jenisStr = {"pemasukan ", "pengeluaran "};
+    private EditText edtNama,edtProduksi,edtThnproduksi, edtJumlah, edtKeterangan;
     private Spinner spnJenis;
 
     @Override
@@ -27,22 +27,26 @@ public class FormActivity extends AppCompatActivity {
         spnJenis.setAdapter(adapter);
 
         edtNama = (EditText) findViewById(R.id.edt_nama);
+        edtProduksi = (EditText) findViewById(R.id.edt_produksi);
+        edtThnproduksi = (EditText) findViewById(R.id.edt_thnproduksi);
         edtJumlah = (EditText) findViewById(R.id.edt_jumlah);
         edtKeterangan = (EditText) findViewById(R.id.edt_keterangan);
     }
 
     public void tambah(View view)
     {
-        TransaksiHelper dbHelper = new TransaksiHelper(this);
+        Helper dbHelper = new Helper(this);
         String nama = edtNama.getText().toString();
+        String produksiby = edtProduksi.getText().toString();
+        int thnproduksi = Integer.parseInt(edtThnproduksi.getText().toString());
         int jenis = spnJenis.getSelectedItemPosition()+1;
         int jumlah = Integer.parseInt(edtJumlah.getText().toString());
         String keterangan = edtKeterangan.getText().toString();
 
-        dbHelper.insertTransaksi(nama, jenis, jumlah, keterangan);
-        Log.d("form.transaksi", nama+" - "+ Integer.toString(jenis)+" - "+Integer.toString(jumlah)
+        dbHelper.insertMobil(nama,produksiby,thnproduksi, jenis, jumlah, keterangan);
+        Log.d("form.mobil", nama+" - "+ produksiby+" - "+Integer.toString(thnproduksi)+" - "+Integer.toString(jenis)+" - "+Integer.toString(jumlah)
                 +" - "+keterangan);
-        Toast.makeText(this, "Transaksi "+nama+" berhasil disimpan", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Mobil "+nama+" berhasil disimpan", Toast.LENGTH_SHORT).show();
 
         //startActivity(new Intent(this, MainActivity.class));
         finish();
